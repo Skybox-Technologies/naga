@@ -581,6 +581,10 @@ impl<'a, W: Write> Writer<'a, W> {
                     width: _,
                     value: ScalarValue::Uint(size),
                 } => write!(self.out, "{}", size)?,
+                ConstantInner::Scalar {
+                    width: _,
+                    value: crate::ScalarValue::Sint(size),
+                } => write!(self.out, "{}", size)?,
                 _ => unreachable!(),
             },
             ArraySize::Dynamic => (),
